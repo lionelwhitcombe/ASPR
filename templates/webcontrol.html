@@ -1,0 +1,50 @@
+<html>
+     <head> 
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+         <title> ASPR web Page </title> 
+     </head>
+<body>
+<div style="float:left">
+ <h1>ASPR Video Stream</h1>
+    <img src="{{ url_for('video_feed') }}">
+
+</div> 
+<div style=" height:400px; width:500px; float:right;">
+<center>
+<h1>Automatic Security Patrol Robot</h1><br><br>
+
+<a href="#" id="up" style="font-size:50px;text-decoration:none;">  &#x1F881;<br>Forward</a><br><br></center>
+<a href="#" id="left" style="font-size:50px;text-decoration:none;"> &#x1F880;Left</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#" id="right" style="font-size:50px; text-decoration:none;"> Right &#x1F882;</a><br><br>
+<center><a href="#" id="down" style="font-size:50px;text-decoration:none;"> Backward<br> &#x1F883;</a></center>
+</div> 
+
+
+<script>
+$( document ).ready(function(){
+    $("#down").keydown(function(event) {
+     if (event.which == 65){
+     $.get('/down_side');
+     }
+    });
+    $("#up").on("mousedown", function() {
+     $.get('/up_side');
+     }).on('mouseup', function() {
+     $.get('/stop');
+    });
+    $("#left").on("mousedown", function() {
+     $.get('/left_side');
+     }).on('mouseup', function() {
+     $.get('/stop');
+    });
+    $("#right").on("mousedown", function() {
+     $.get('/right_side');
+     }).on('mouseup', function() {
+     $.get('/stop');
+    });
+});
+</script>
+
+</body>
+</html>
+
