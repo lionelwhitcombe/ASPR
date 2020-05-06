@@ -4,11 +4,11 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 
 # ASPR username and password
-fromEmail = 'probARealEmail@dontusethis.com'
+fromEmail = 'sendersemail'
 fromEmailPassword = 'password'
 
 # Email recipient
-userEmail = 'thisismyrealemail@usethis'
+userEmail = 'email'
 
 def sendEmail(image):
     msgRoot = MIMEMultipart('related')
